@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Badge from './components/Badge';
 import Forecast from './Forecast';
@@ -9,7 +9,7 @@ import FlashyCard from "./components/FlashyCard/FlashyCard";
 function App() {
     const [forecasts, setForecasts] = useState<Forecast[]>();
     const [isLoading, setLoading] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const selectedDate = useRef(new Date());
 
     useEffect(() => {
         populateWeatherData();
@@ -73,12 +73,11 @@ function App() {
     }
 
     function cellModifier(cell: CalendarCell) {
-        cell.isSelected = cell.date.getTime() == selectedDate.getTime();
+        cell.isSelected = cell.date.getTime() == selectedDate.current.getTime();
     }
 
     function cellClicked(cell: CalendarCell) {
-        setSelectedDate(cell.date);
-        console.log(`Cell Clicked: ${selectedDate}`);
+        selectedDate.current = cell.date;
     }
 }
 

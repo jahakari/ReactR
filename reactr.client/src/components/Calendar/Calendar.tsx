@@ -67,8 +67,6 @@ function Calendar(props: CalendarProps) {
     }
 
     function generateCells() {
-        console.log("Generating cells...");
-
         let date = new Date(year, month);
         let days = date.getDay();
 
@@ -97,8 +95,6 @@ function Calendar(props: CalendarProps) {
     }
 
     function cellClicked(cell: CalendarCell) {
-        console.log(`Calendar Cell Clicked: ${cell.date}`);
-
         if (!props.onCellClicked) {
             return;
         }
@@ -106,7 +102,6 @@ function Calendar(props: CalendarProps) {
         props.onCellClicked(cell);
 
         if (props.refreshOnCellClick) {
-            console.log("Refreshing");
             refresh();
         }
     }
