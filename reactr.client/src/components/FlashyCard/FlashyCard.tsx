@@ -5,7 +5,7 @@ export default function FlashyCard() {
     return (
         <div className="flashy-card-container">
             <div className="flashy-card-overlay">
-                Sup
+                Goodbye
             </div>
             <div className="flashy-card-content">
                 Hello
