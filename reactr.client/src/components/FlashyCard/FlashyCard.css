@@ -1,0 +1,39 @@
+
+.flashy-card-container {
+    position: relative;
+    height: 500px;
+    width: 300px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    border-radius: 10px;
+}
+
+.flashy-card-content {
+    height: 100%;
+    width: 100%;
+    background-image: url("/public/purdy.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 1rem;
+}
+
+.flashy-card-overlay:hover + .flashy-card-content {
+    transform: scale(1.05);
+}
+
+.flashy-card-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity .2s;
+    z-index: 10;
+    padding: 1rem;
+    color: white;
+}
+
+.flashy-card-overlay:hover {
+    opacity: 85%;
+}
