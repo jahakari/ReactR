@@ -82,6 +82,8 @@ function Calendar(props: CalendarProps) {
 
         for (; date <= end; date = date.addDays(1)) {
             let cell = new CalendarCell(date, month);
+            cell.isClickable = !!props.onCellClicked;
+
             updateCell(cell);
             cells.push(cell);
         }
@@ -90,7 +92,6 @@ function Calendar(props: CalendarProps) {
     }
 
     function updateCell(cell: CalendarCell) {
-        cell.isClickable = !!props.onCellClicked;
         props.cellModifier?.(cell);
     }
 
